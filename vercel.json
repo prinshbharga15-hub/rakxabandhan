@@ -19,19 +19,11 @@
       "dest": "server/server.js"
     },
     {
-      "src": "/audio/(.*)",
-      "dest": "client/public/audio/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "client/public/assets/$1"
-    },
-    {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "client/index.html"
+      "dest": "/index.html"
     }
   ]
 }
