@@ -1,15 +1,26 @@
 const mongoose = require('mongoose');
+const dns = require('dns');
+
+// Configure robust public DNS resolvers so SRV records (mongodb+srv://) resolve seamlessly across all Windows networks & ISPs
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch (e) {
+  // Ignore in environments where setting DNS servers is restricted
+}
 
 let isConnected = false;
 
 const connectDB = async () => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/raksha_bandhan_db';
-    
-    // Set a short timeout for connection attempt so app starts quickly even if MongoDB is not running locally
+    const mongoURI =
+      process.env.MONGODB_URI ||
+      'mongodb://127.0.0.1:27017/raksha_bandhan_db';
+
+    console.log('📡 Connecting to MongoDB database...');
+
     const conn = await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 3000,
-      connectTimeoutMS: 3000,
+      serverSelectionTimeoutMS: 12000,
+      connectTimeoutMS: 12000,
     });
 
     isConnected = true;
@@ -27,5 +38,5 @@ const getDBStatus = () => isConnected;
 
 module.exports = {
   connectDB,
-  getDBStatus
+  getDBStatus,
 };
