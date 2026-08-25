@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #FFFDF9;
+    color: #1C1917;
+    overflow-x: hidden;
+  }
+
+  /* Custom Festive Gold Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFF9F0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #DC2626, #EA580C, #F59E0B);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #B91C1C, #D97706, #EAB308);
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.45);
+  }
+
+  .text-glow-crimson {
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #B45309 0%, #D97706 30%, #F59E0B 70%, #FBBF24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .festive-gradient-text {
+    background: linear-gradient(135deg, #DC2626 0%, #EA580C 40%, #D97706 80%, #F59E0B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    box-shadow: 0 10px 30px -5px rgba(217, 119, 6, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  }
+
+  .glass-card-dark {
+    background: rgba(28, 25, 23, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .gold-border {
+    border-image: linear-gradient(to right, #F59E0B, #DC2626, #F59E0B) 1;
+  }
+}
+
+/* Background Mandala Motifs */
+.bg-mandala-radial {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(220, 38, 38, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.03) 0%, transparent 40%);
+}
+
+/* Canvas 3D Containers */
+.webgl-canvas-container {
+  touch-action: none;
+}
